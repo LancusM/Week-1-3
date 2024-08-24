@@ -11,32 +11,30 @@ namespace Week_1_3
     {
         static void Main(string[] args)
         {
-            //Excercise 3,
+            //Excercise 3, user inputs value of principal, rate, and time, and the code calculates and outputs the interest.
             //Initial title/prompt
             Console.WriteLine("Interest Calculator Program");
-            //Asks for Principal
+            //Asks for Principal value
             Console.WriteLine("What is the principal amount of the loan in dollars?");
-            //assigns user input to principal variable of int
-            //converts the readable line to int with the convert, making it able to do math later
-            int principal = Convert.ToInt32(Console.ReadLine());
-            //Asks for Interest Rate
+            /* Initially, I used int and Convert.ToInt32 for both principal and time, but after learning that they all must be the same variable type,
+            I thought it made sense to make them all float and calculate it with those. */
+            //Takes user input, parses/converts it into float variable, into prinicpal value
+            float principal = float.Parse(Console.ReadLine());
+            //Asks for Interest Rate, changing percent into decimal
             Console.WriteLine("What is the interest rate (input 0.05 for 5%)?");
-            //assigns user input to rate variable
-            //the float variable requires the different parse to convert it, I learned
+            //Takes user input, parses/converts it into float variable, into rate value
+            //I now know this one necessitates the parse, as the decimal conversion of the user input differs from the int variable
             float rate = float.Parse(Console.ReadLine());
             //Asks for loan period
             Console.WriteLine("What is the period of the loan in years?");
-            //assigns user input to time variable
-            //same as principal, converting to int
-            int time = Convert.ToInt32(Console.ReadLine());
-            //This changes the int values of
-            float floatPrin = principal;
-            float floatTime = time;
-
+            //Takes user input, parses/converts it into float variable, into time value
+            float time = float.Parse(Console.ReadLine());
+            /* Creates interest variable for the later equation. I'm not sure if I should've declared it higher, but it is here
+            as a float variable to work with the others */
             float interest = 0;
-
+            // The actual equation, using the instructions of how to find interest
             interest = principal * rate * time;
-
+            //Displays the calculation result.
             Console.WriteLine("Total Interest of Loan is: " + interest + " dollars.");
         }
     }
